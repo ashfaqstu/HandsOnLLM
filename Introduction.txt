@@ -1,0 +1,19 @@
+In large language model,
+two of the most important terms are token and embedding.
+
+Tokens are words that are represented in separate manner. Embedding represents the tokens in vector format. Here word2vector conversion occurs. 
+The further we go, the more terms we get to introduced. Representative models are basically encoders they are not capable of generative capabilities.
+And generative models can create tokens.
+
+A new revolutionary system introduced which is attention. Attention here basically means the relevance with words. So while encoding the classification
+it can be trained parallely to identify or predict the word that can fit after it.
+
+The bert model generates new token based on previous generated tokens.
+Suppose a prompt it given "What is ice"
+now it will encode and generate token one by one 
+"what is ice" + ice
+"what is ice ice" is 
+"what is ice ice is " a 
+..........................
+
+like this it will generate the whole sentence what is ice ice is a state of water.

@@ -1,0 +1,34 @@
+#here I am installing phi 3 mini on google colab
+
+
+#setting up google colab: first create new file and setting runtime to T4 gpu 
+
+
+#by running the following code it will automatically download the model
+from transformers import AutoModelForCausalLM, AutoTokenizer
+ # Load model and tokenizer
+model = AutoModelForCausalLM.from_pretrained(
+    "microsoft/Phi-3-mini-4k-instruct",
+    device_map="cuda",
+    torch_dtype="auto",
+    trust_remote_code=True,
+)
+tokenizer = AutoTokenizer.from_pretrained("microsoft/Phi-3-mini-4k-instruct")
+
+
+
+#after downloading 
+  
+  prompt= "Write an email apologizing to Sarah for the tragic gardening mishap. Explain how it happened.<|assistant|>"
+  #tokenize the input prompt
+  
+  input_ids= tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
+  
+  #generate the text
+  generation_output= model.generate(
+    input_ids=input_ids,
+    max_new_tokens=20,
+  )
+  
+  #print the output
+  print(tokenizer.decode(generation_output[0]))
